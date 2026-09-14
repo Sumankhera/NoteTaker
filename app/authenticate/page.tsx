@@ -30,7 +30,7 @@ export default function AuthenticatePage() {
       return;
     }
 
-    router.push("/notes");
+    router.push("/dashboard");
   }
 
   return (
