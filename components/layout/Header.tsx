@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { signOut, useSession } from "@/lib/auth-client";
@@ -19,7 +20,12 @@ export default function Header() {
 
   return (
     <header className="flex items-center justify-between border-b border-neutral-800 px-4 py-3">
-      <span className="text-sm font-semibold">NoteTaker</span>
+      <Link href="/dashboard" className="flex items-center gap-2">
+        <span className="flex h-6 w-6 items-center justify-center rounded-md bg-neutral-100 text-xs font-bold text-neutral-900">
+          N
+        </span>
+        <span className="text-sm font-semibold tracking-tight">Next Notes</span>
+      </Link>
       {session && (
         <button
           type="button"
