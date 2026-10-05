@@ -12,3 +12,5 @@ export const CreateNoteSchema = z.object({
       { message: "Note content is too large" },
     ),
 });
+
+export const UpdateNoteSchema = CreateNoteSchema;
