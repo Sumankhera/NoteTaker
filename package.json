@@ -3,7 +3,8 @@
     "dev": "bun run --bun next dev",
     "build": "bun run --bun next build",
     "start": "bun run --bun next start",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "test": "bun run --bun vitest run"
   },
   "dependencies": {
     "@tiptap/pm": "^3.30.3",
@@ -25,6 +26,7 @@
     "eslint-config-next": "^16.3.3",
     "postcss": "^8.5.26",
     "tailwindcss": "^4.3.3",
-    "typescript": "^7.0.2"
+    "typescript": "^7.0.2",
+    "vitest": "^5.0.3"
   }
 }
