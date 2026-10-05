@@ -32,7 +32,7 @@ export default function NoteEditor({
 
   return (
     <div className="flex flex-col">
-      {editable && <EditorToolbar editor={editor} />}
+      {editable && editor && <EditorToolbar editor={editor} />}
       <EditorContent editor={editor} />
     </div>
   );

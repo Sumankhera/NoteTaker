@@ -27,6 +27,7 @@ export default function NoteDetail({
   const [title, setTitle] = useState(note.title);
   const [content, setContent] = useState<JSONContent>(note.content);
   const [updatedAt, setUpdatedAt] = useState(note.updatedAt);
+  const [isPublic, setIsPublic] = useState(note.isPublic);
   const [status, setStatus] = useState<"idle" | "saving" | "saved">("idle");
   const saveTimeout = useRef<ReturnType<typeof setTimeout> | null>(null);
 
@@ -101,7 +102,7 @@ export default function NoteDetail({
       <div className="flex items-center gap-3 text-sm text-neutral-500 dark:text-neutral-400">
         <span>Updated: {new Date(updatedAt).toLocaleDateString()}</span>
         <span>·</span>
-        <span>{note.isPublic ? "Public" : "Private"}</span>
+        <span>{isPublic ? "Public" : "Private"}</span>
         {isEditing && status !== "idle" && (
           <>
             <span>·</span>
@@ -125,6 +126,7 @@ export default function NoteDetail({
         noteId={note.id}
         initialIsPublic={note.isPublic}
         initialPublicId={note.publicId}
+        onIsPublicChange={setIsPublic}
       />
     </div>
   );

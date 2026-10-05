@@ -6,10 +6,12 @@ export default function ShareControl({
   noteId,
   initialIsPublic,
   initialPublicId,
+  onIsPublicChange,
 }: {
   noteId: string;
   initialIsPublic: boolean;
   initialPublicId: string | null;
+  onIsPublicChange?: (isPublic: boolean) => void;
 }) {
   const [isPublic, setIsPublic] = useState(initialIsPublic);
   const [publicId, setPublicId] = useState(initialPublicId);
@@ -32,6 +34,7 @@ export default function ShareControl({
       }
       setIsPublic(false);
       setPublicId(null);
+      onIsPublicChange?.(false);
     } else {
       const res = await fetch(`/api/notes/${noteId}/share`, { method: "POST" });
       setLoading(false);
@@ -42,6 +45,7 @@ export default function ShareControl({
       const data = await res.json();
       setIsPublic(true);
       setPublicId(data.publicId);
+      onIsPublicChange?.(true);
     }
   }
 
